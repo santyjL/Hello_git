@@ -1,30 +1,13 @@
-texto : str = input("introduzca el texto")
+texto : str = input("introduzca el texto : ")
 
-def lenguaje_hacker (texto : str):
-    caracteres : list = texto.split(None)
-    text : str = ""
+def lenguaje_hacker(texto: str) -> str:
+    texto_modificado = texto.lower()
+    texto_modificado = texto_modificado.replace("a", "4")
+    texto_modificado = texto_modificado.replace("e", "3")
+    texto_modificado = texto_modificado.replace("i", "1")
+    texto_modificado = texto_modificado.replace("o", "0")
+    texto_modificado = texto_modificado.replace("u", "(_)")
 
-    for i in range(len(caracteres)):
+    return texto_modificado
 
-        if caracteres[i].lower() == "a":
-            text += "4"
-
-        elif caracteres[i].lower() == "e":
-            text += "3"
-
-        elif caracteres[i].lower() == "i":
-            text += "1"
-
-        elif caracteres[i].lower() == "o":
-            text += "0"
-
-        elif caracteres[i].lower() == "u":
-            text += "(_)"
-
-        else :
-            text += caracteres[i]
-
-    print(text)
-
-
-lenguaje_hacker(texto)
+print(lenguaje_hacker(texto))
