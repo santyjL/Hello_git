@@ -39,6 +39,7 @@ def lenguaje_hacker(texto: str) -> str:
 
         return texto_modificado
 
+
     def palanca_avanza(texto):
         nuevo_texto = palanca_media(texto)
 
@@ -72,5 +73,3 @@ def lenguaje_hacker(texto: str) -> str:
 
 
     return texto_modificado
-
-print(lenguaje_hacker(texto))
