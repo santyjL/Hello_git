@@ -1,10 +1,17 @@
-texto : str = input("introduzca el texto : ")
+texto : str = input("introduzca el texto : ") #se introduce el texto en lenguaje natural
 
+#funcion para cambiar de lenguaje natural a lenguaje_hacker
 def lenguaje_hacker(texto: str) -> str:
+    """
+    funcion que combierte el texto natural a
+    lenguaje_hacker que te permite decidir si en
+    palanca_simple ; palanca_media o palanca_avanza
+    """
 
     texto_modificado = texto.lower()
 
     def palanca_simple(texto_modificado):
+        "cambia las vocales"
 
         texto_modificado = texto_modificado.replace("a", "4")
         texto_modificado = texto_modificado.replace("e", "3")
@@ -15,6 +22,7 @@ def lenguaje_hacker(texto: str) -> str:
         return texto_modificado
 
     def palanca_media(texto):
+        "cambia la mayoria de consonantes"
 
         nuevo_texto = palanca_simple(texto)
 
