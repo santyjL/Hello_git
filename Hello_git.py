@@ -1,6 +1,67 @@
-texto : str = input("introduzca el texto : ") #se introduce el texto en lenguaje natural
+
+#decorador
+
+
+def color_text(funcion):
+
+    def modificar_funcion():
+
+        ROJO = "\033[31m"
+        VERDE = "\033[32m"
+        AZUL = "\033[34m"
+        MAGENTA = "\033[35m"
+        CYAN = "\033[36m"
+        BLANCO = "\033[37m"
+
+        color = int(input("""en que color le gustaria el texto
+                            1.ROJO
+                            2.VERDE
+                            3.AZUL
+                            4.MAGENTA
+                            5.CYAN
+                            6.BLANCO
+                            (eliga segun el indice) : """))
+
+
+
+        if color == 1 :
+            print(ROJO)
+            return ROJO
+
+        elif color == 2 :
+            print(VERDE)
+            return VERDE
+
+        elif color == 3:
+            print(AZUL)
+            return AZUL
+
+        elif color == 4:
+            print(MAGENTA)
+            return MAGENTA
+
+        elif color == 5:
+            print(CYAN)
+            return CYAN
+
+        elif color == 6 :
+            print(BLANCO)
+            return BLANCO
+
+        else :
+            print("algo salio mal")
+            return
+
+    def wrapper(*args, **kwargs):
+        selected_color = modificar_funcion()  # Almacenamos el color seleccionado
+        translated_text = funcion(*args, **kwargs)  # Obtenemos el texto traducido
+        print(selected_color)  # Imprimimos el color seleccionado para asegurarnos de tenerlo
+        return translated_text, selected_color
+
+    return wrapper  # Devolvemos la función wrapper
 
 #funcion para cambiar de lenguaje natural a lenguaje_hacker
+@color_text
 def lenguaje_hacker(texto: str) -> str:
     """
     funcion que combierte el texto natural a
@@ -13,13 +74,11 @@ def lenguaje_hacker(texto: str) -> str:
 
     def palanca_simple(texto):
         "cambia las vocales"
-
         texto_modificado = texto.replace("a", "4")
-        texto_modificado = texto.replace("e", "3")
-        texto_modificado = texto.replace("i", "1")
-        texto_modificado = texto.replace("o", "0")
-        texto_modificado = texto.replace("u", "(_)")
-
+        texto_modificado = texto_modificado.replace("e", "3")
+        texto_modificado = texto_modificado.replace("i", "1")
+        texto_modificado = texto_modificado.replace("o", "0")
+        texto_modificado = texto_modificado.replace("u", "(_)")
         return texto_modificado
 
 
