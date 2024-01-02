@@ -1,3 +1,7 @@
+from Hello_git import color_text
+
+
+@color_text
 def decimal_a_romano(numero : int):
     """
     resive numeros naturales y retorna su valor en romano
@@ -26,6 +30,4 @@ def decimal_a_romano(numero : int):
         i += 1
     return resultado
 
-# Ejemplo de uso
-numero_decimal = 354
-print(f"El número {numero_decimal} en romano es: {decimal_a_romano(numero_decimal)}")
+
