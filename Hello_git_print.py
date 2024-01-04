@@ -65,8 +65,22 @@ while True:
                 5.binario
         """)
 
+    try:
 
-    lenguaje = int(input("introduce el lenguaje a utilizar segun el indice : "))
+        lenguaje = int(input("introduce el lenguaje a utilizar segun el indice : "))
+
+    except ValueError as error :
+
+        print(MAGENTA)
+        print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|")
+
+        print(BLANCO)
+        print("recalco que del indice , osea un numero no un texto u otra cosa , error optenido : " , error)
+        input("precione enter para continuar : ")
+        os.system("cls")
+        continue
+
+
     os.system("cls")
     time.sleep(0.2)
 
@@ -80,10 +94,16 @@ while True:
         time.sleep(0.2)
 
         if lenguaje == 1:
-
-            traducion , color = lenguaje_hacker(texto)
-            llamado = LenguajeElegido("lenguaje_hacker" , color , traducion , texto)
-            llamado.presenteacion()
+            try:
+                traducion , color = lenguaje_hacker(texto)
+                llamado = LenguajeElegido("lenguaje_hacker" , color , traducion , texto)
+                llamado.presenteacion()
+            except:
+                print("es enserio , todo iba tan bien y tu la cagas ")
+                input("precione enter para continuar : ")
+                time.sleep(0.2)
+                os.system("cls")
+                continue
 
 
         elif lenguaje == 2:
@@ -103,7 +123,22 @@ while True:
     elif (lenguaje == 3 or
           lenguaje == 5):
 
-        numero = int(input("introduce el numero a combertir : "))
+        try:
+
+            numero = int(input("introduce el numero a combertir : "))
+
+        except ValueError as error:
+
+            print(MAGENTA)
+            print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|")
+
+            print(BLANCO)
+            print("en este caso estas trabajando con combersores numericos , entoces se te pide un numero , error : " , error)
+            input("precione enter para continuar : ")
+            time.sleep(0.2)
+            os.system("cls")
+            continue
+
         os.system("cls")
         time.sleep(0.2)
 
@@ -130,6 +165,7 @@ while True:
 
     print(MAGENTA)
     print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|\n")
+
     print(color)
     seguir =  input("va a seguir usando el traductor , yes/no : ")
 

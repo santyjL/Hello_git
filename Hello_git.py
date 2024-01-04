@@ -1,3 +1,4 @@
+import os
 
 #decorador
 
@@ -50,6 +51,8 @@ def color_text(funcion):
 
         else :
             print("algo salio mal")
+            input("precione enter para continuar : ")
+            os.system("cls")
             return
 
     def wrapper(*args, **kwargs):
