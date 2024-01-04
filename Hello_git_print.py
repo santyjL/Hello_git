@@ -2,7 +2,7 @@ import os
 import time
 
 from Hello_git import color_text, lenguaje_hacker
-from opciones_replace import morse, numeros_romanos, reverso
+from opciones_replace import binario, morse, numeros_romanos, reverso
 
 #colores
 MAGENTA = "\033[35m"
@@ -62,6 +62,7 @@ while True:
                 2.reverso
                 3.decimal_a_romano
                 4.codigo_morse
+                5.binario
         """)
 
 
@@ -72,7 +73,7 @@ while True:
 
     if (lenguaje == 1 or
         lenguaje == 2 or
-        lenguaje == 4):
+        lenguaje == 4 ):
 
         texto : str = input("introduce el texto a traducir : ")
         os.system("cls")
@@ -99,15 +100,24 @@ while True:
             llamado.presenteacion()
 
 
-    elif lenguaje == 3:
+    elif (lenguaje == 3 or
+          lenguaje == 5):
 
         numero = int(input("introduce el numero a combertir : "))
         os.system("cls")
         time.sleep(0.2)
 
-        combercion , color = numeros_romanos.decimal_a_romano(numero)
-        llamado = LenguajeElegido("natural a romano" ,color , combercion , numero)
-        llamado.presenteacion()
+
+        if lenguaje == 3 :
+            combercion , color = numeros_romanos.decimal_a_romano(numero)
+            llamado = LenguajeElegido("natural a romano" ,color , combercion , numero)
+            llamado.presenteacion()
+
+
+        elif lenguaje == 5 :
+            combercion , color = binario.numero_a_binario(numero)
+            llamado = LenguajeElegido("binario" ,color , combercion , numero)
+            llamado.presenteacion()
 
 
     else :
