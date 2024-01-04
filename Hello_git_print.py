@@ -2,7 +2,7 @@ import os
 import time
 
 from Hello_git import color_text, lenguaje_hacker
-from opciones_replace import numeros_romanos, reverso
+from opciones_replace import binario, morse, numeros_romanos, reverso
 
 #colores
 MAGENTA = "\033[35m"
@@ -23,6 +23,7 @@ class LenguajeElegido:
         print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|")
         time.sleep(0.2)
 
+
         print(self.color)
         print(f"valor introducido en el lenguaje : {self.nombre}:")
         time.sleep(0.2)
@@ -38,6 +39,7 @@ class LenguajeElegido:
         time.sleep(0.2)
         print(self.original)
 
+
         input("precione enter para seguir : ")
         os.system("cls")
 
@@ -48,56 +50,93 @@ print(BLANCO)
 print("este es un traductor de varios lenguajes un poco raros --vercion Beta_0.3")
 
 while True:
+
     print(MAGENTA)
     print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|")
     print(BLANCO)
 
-    print("""Que lenguaje va a utilizar ?
+
+    print("""
+          Que lenguaje va a utilizar ?
                 1.lenguaje_hacker (Leet)
                 2.reverso
-                3.decimal_a_romano""")
+                3.decimal_a_romano
+                4.codigo_morse
+                5.binario
+        """)
+
 
     lenguaje = int(input("introduce el lenguaje a utilizar segun el indice : "))
     os.system("cls")
     time.sleep(0.2)
 
-    if lenguaje == 1 or lenguaje == 2:
+
+    if (lenguaje == 1 or
+        lenguaje == 2 or
+        lenguaje == 4 ):
+
         texto : str = input("introduce el texto a traducir : ")
         os.system("cls")
         time.sleep(0.2)
 
         if lenguaje == 1:
+
             traducion , color = lenguaje_hacker(texto)
             llamado = LenguajeElegido("lenguaje_hacker" , color , traducion , texto)
             llamado.presenteacion()
 
+
         elif lenguaje == 2:
+
             traducion , color = reverso.texto_reverso(texto)
             llamado = LenguajeElegido("reverso" , color , traducion , texto)
             llamado.presenteacion()
 
-    elif lenguaje == 3:
+
+        elif lenguaje == 4:
+
+            traducion , color = morse.codigo_morse(texto)
+            llamado = LenguajeElegido("morse" , color , traducion , texto)
+            llamado.presenteacion()
+
+
+    elif (lenguaje == 3 or
+          lenguaje == 5):
+
         numero = int(input("introduce el numero a combertir : "))
         os.system("cls")
         time.sleep(0.2)
 
-        combercion , color = numeros_romanos.decimal_a_romano(numero)
-        llamado = LenguajeElegido("natural a romano" ,color , combercion , numero)
-        llamado.presenteacion()
+
+        if lenguaje == 3 :
+            combercion , color = numeros_romanos.decimal_a_romano(numero)
+            llamado = LenguajeElegido("natural a romano" ,color , combercion , numero)
+            llamado.presenteacion()
+
+
+        elif lenguaje == 5 :
+            combercion , color = binario.numero_a_binario(numero)
+            llamado = LenguajeElegido("binario" ,color , combercion , numero)
+            llamado.presenteacion()
+
 
     else :
+
         os.system("cls")
         time.sleep(0.2)
         print("esa no es una opcion a elegir")
         input("precione enter para continuar : ")
+
 
     print(MAGENTA)
     print("/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|/|-\|\n")
     print(color)
     seguir =  input("va a seguir usando el traductor , yes/no : ")
 
+
     if seguir.lower() == "yes":
         continue
 
     else :
         break
+
